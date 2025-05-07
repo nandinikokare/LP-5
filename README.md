@@ -1,6 +1,7 @@
 If TensorFlow is not installed:
 
 Verify if TensorFlow is installed by running:
+
 pip show tensorflow
 
 If not installed, install it using:
@@ -8,6 +9,7 @@ If not installed, install it using:
 nginx
 
 pip install tensorflow
+
 Incorrect TensorFlow version:
 
 If TensorFlow is installed but the error persists, it might be due to a version issue. TensorFlow 2.x integrates Keras as tensorflow.keras, but in TensorFlow 1.x, Keras is a separate library.
@@ -17,16 +19,22 @@ Ensure you have TensorFlow 2.x installed:
 pip install --upgrade tensorflow
 
 Environment issues:
+
 If you are using Jupyter Notebook, ensure that the kernel environment matches the TensorFlow environment. You can verify the Python environment in the notebook by running:
 
 python
+
 !which python
+
 !pip show tensorflow
 
 Kernel Restart:
+
 After installing TensorFlow, restart the Jupyter kernel to apply changes.
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-You said:
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
 ImportError                               Traceback (most recent call last)
 Cell In[1], line 4
       2 import matplotlib.pyplot as plt
@@ -102,43 +110,70 @@ File h5py\h5.pyx:1, in init h5py.h5()
 ImportError: DLL load failed while importing defs: The specified procedure could not be found.
 
 ✅ Steps to Resolve:
+
 1. Reinstall h5py and tensorflow:
+
 Run these commands to reinstall h5py and tensorflow:
 
 bash
+
 pip uninstall h5py tensorflow -y
+
 pip install h5py tensorflow
 
+
 3. Check for DLL Compatibility:
+
 Ensure that the required DLLs are present in your Python environment. You can verify this by running:
 
 bash
+
 where h5py.dll
+
 where hdf5.dll
+
+
 If they are missing, reinstall h5py as shown above.
 
+
 3. Update Anaconda Packages:
+
 If you are using Anaconda, run:
 
 bash
+
 Copy code
+
 conda update conda
+
 conda update --all
+
+
 4. Install Microsoft Visual C++ Redistributable:
+
 Ensure that the latest version of the Microsoft Visual C++ Redistributable is installed. Download it from:
+
 Microsoft Visual C++ Redistributable
 
+
 5. Check Python Version Compatibility:
+
 Ensure that the TensorFlow version is compatible with your Python version. You can check your Python version using:
 
 bash
+
 python --version
+
 If the Python version is too old or too new, consider creating a new environment with a compatible version:
 
 bash
+
 conda create -n tf_env python=3.10
+
 conda activate tf_env
+
 pip install tensorflow h5py
+
 After completing these steps, restart Jupyter Notebook and run the code again. Let me know how it goes!
 
 
